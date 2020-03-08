@@ -57,9 +57,8 @@ install:
   - composer show
 
 script:
-  - ./vendor/bin/grumphp run
+  - php vendor/bin/grumphp run
   - if [[ $TEST_COVERAGE == true ]]; then composer test-coverage ; else composer test; fi
-  - if [[ $CHECK_CS == true ]]; then php vendor/bin/phpcs --standard=PSR2 src test config; fi
 
 after_script:
   - if [[ $TEST_COVERAGE == true ]] ; then php vendor/bin/php-coveralls -v ; fi
